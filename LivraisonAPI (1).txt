@@ -1,0 +1,108 @@
+
+
+ADD ADRESSE : 
+Methode : post
+http://localhost:8080/adresse/addAdresse
+{
+	"pays" : "Tunisie",
+	"ville" : "tunis",
+	"rue" : "rue de montreuil",
+	"codePostal" : "75011"
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+GET ALL ADRESSE :
+Methode : get
+http://localhost:8080/adresse/getAdresses
+
+////////////////////////////////////////////////////////////////////////////////
+
+ADD USER : 
+Methode : post
+http://localhost:8080/utilisateur/addUtilisateur
+{
+	"nom" : "turki",
+	"prenom" : "karim",
+	"mail" : "abdelkarim.turki@gmail.com",
+	"adresse" : {
+        "id": 1,
+        "pays": "Tunisie",
+        "ville": "tunis",
+        "rue": "rue de montreuil",
+        "codePostal": "75011"
+	},
+	"telephone" : 58110992,
+	"age": 24
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+GET ALL USERS : 
+Methode : get
+http://localhost:8080/utilisateur/getUtilisateur
+
+////////////////////////////////////////////////////////////////////////////////
+
+ADD LIVRAISON : 
+Methode : post
+http://localhost:8080/livraison/addLivraison
+{
+	"dateLivraison" : "2019-12-26",
+	"destination" : {
+		"id": 1,
+        "pays": "Tunisie",
+        "ville": "tunis",
+        "rue": "rue de montreuil",
+        "codePostal": "75011"
+	},
+	"client" : {
+		"id": 2,
+        "nom": "turki",
+        "prenom": "karim",
+        "mail": "abdelkarim.turki@gmail.com",
+        "adresse": {
+            "id": 1,
+            "pays": "Tunisie",
+            "ville": "tunis",
+            "rue": "rue de montreuil",
+            "codePostal": "75011"
+        },
+        "telephone": 58110992,
+        "age": 24
+	},
+	"numCommande" : 12,
+	"reduction" : 20,
+	"fraisLivraisonEstime" : 155,
+	"etat" : 0
+}
+
+////////////////////////////////////////////////////////////////////////////////
+
+GET ALL LIVRAISON :
+Methode : get
+http://localhost:8080/livraison/getLivraison
+
+///////////////////////////////////////////////////////////////////////////////
+
+DELETE LIVRAISON :
+Methode : delete
+http://localhost:8080/livraison/delete/3
+
+
+
+
+GET LIVRAISON BY USER(les livraisons  qui ne sont pas encore livrées et propositions d’une date pour tous les produits en même temps)
+Methode : get
+http://localhost:8080/livraison/getLivraisonByClient/2
+
+///////////////////////////////////////////////////////////////////////////////
+ACCEPT PROPOSITION 
+Methode : put
+http://localhost:8080/livraison/acceptProposition/2
+
+
+
+
+
+
