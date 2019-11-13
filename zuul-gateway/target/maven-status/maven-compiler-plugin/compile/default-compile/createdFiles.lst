@@ -1,0 +1,5 @@
+filters\RouteFilter.class
+com\esprit\microservice\ZuulGatewayApplication.class
+filters\PostFilter.class
+filters\PreFilter.class
+filters\ErrorFilter.class
