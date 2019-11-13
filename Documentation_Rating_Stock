@@ -1,0 +1,128 @@
+{
+	
+	*********************************ADD CATEGORIE****************************
+	"ADD CATEGORIE": [
+		{
+			"URL": "http://192.168.99.100:8762/stock-service",
+			"request": {
+				"method": "POST",
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nomCategorie\" : \"categorie1\"\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+			},
+			"response": ["Categorie added"]
+		}
+
+*******************************list CATEGORIE***************************************
+		{
+			"URL": "http://192.168.99.100:8762/stock-service",
+			"request": {
+
+				"method": "GET",
+			},
+			"response": ["liste des catégories"]
+		},
+*******************************GET CATEGORY BY ID**********************
+		{
+			"URL": "http://192.168.99.100:8762/stock-service/1",
+
+				"method": "GET",
+			},
+			"response": ["Categorie"]
+		},
+
+*******************************ADD PRODUCT**********************
+		{
+			"URL": "http://192.168.99.100:8762/stock-service/produit/addProduit",
+			"request": {
+				"method": "POST",
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nom\" : \"produit1\",\n\"prix\":400\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+			},
+			"response": ["success"]
+		},
+******************************List PRODUCTS*******************************
+		{
+			"URL": "http://192.168.99.100:8762/stock-service/produit/listProduit",
+			"request": {
+				"method": "GET",
+			},
+			"response": ["list des produits"]
+		},
+
+*****************************ADD PRODUCT TO CATEGORY****************************
+		{
+			"URL": "http://192.168.99.100:8762/stock-service/produit/addProduitCategorie/2/1",
+			Params passés dans l'url : 2->ID PRODUIT , 1->ID CATEGORY,
+			"request": {
+				"method": "GET",
+			},
+			"response": ["product added to catégorie"]
+		},
+
+*************************UPDATE PRODUCT*********************************
+		{
+			"URL": "http://192.168.99.100:8762/stock-service/produit/update/2",
+			"request": {
+				"method": "PUT",
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"nom\" : \"produit6\",\n\"prix\":400\n\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+			},
+			"response": ["update"]
+		},
+***************************DELETE PRODUCT BY ID******************
+		{
+			"URL": "http://192.168.99.100:8762/stock-service/produit/delete/3",
+			"request": {
+				"method": "DELETE",
+			},
+			"response": ["delete"]
+		},
+***************************GET PRODUCT from Micro Service STOCK and Average(Rating) of a product from Micro Service RATING by ID_PRODUCT******************
+
+		{
+			"URL": "http://192.168.99.100:8762/rating-service/rating/addRatingtoProduit",
+			"request": {
+				"method": "POST",
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"rate\":5,\n\t\"produitId\":2\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+			},
+			"response": ["Success"]
+		},
+		{
+			"name": "http://192.168.99.100:8762/rating-service/rating/rateProduct/2",
+			"request": {
+				"method": "GET",
+				"description": "get AVG(Rating) from micro service rating and product name from micro service stock by product id "
+			},
+			"response": ["Le produit :NomPRODUIT a le prix : PrixPRODUIT et un rating : Moyenne_RATING_PRODUIT"]
+		}
+	],
+}
