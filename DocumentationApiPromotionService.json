@@ -4,6 +4,8 @@
 		"name": "PromotionService",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
 	},
+
+	************************************* GET prix produit aprés reduction coupon *********************************
 	"item": [
 		{
 			"name": "http://localhost:8120/api/coupons/1/200",
@@ -46,6 +48,9 @@
 			},
 			"response": []
 		},
+
+	************************************* set coupon invalide *********************************
+
 		{
 			"name": "http://localhost:8120/api/coupons/1",
 			"request": {
@@ -83,6 +88,8 @@
 			},
 			"response": []
 		},
+			************************************* USE COUPON *********************************
+
 		{
 			"name": "http://localhost:8120/api/coupons/1/Welcome",
 			"request": {
@@ -121,6 +128,10 @@
 			},
 			"response": []
 		},
+
+
+			************************************* ADD COUPON *********************************
+
 		{
 			"name": "http://localhost:8120/api/coupons/",
 			"request": {
@@ -158,47 +169,7 @@
 			},
 			"response": []
 		},
-		{
-			"name": "http://localhost:8120/api/coupons/1/Welcome",
-			"protocolProfileBehavior": {
-				"disableBodyPruning": true
-			},
-			"request": {
-				"method": "GET",
-				"header": [
-					{
-						"key": "Content-Type",
-						"name": "Content-Type",
-						"type": "text",
-						"value": "application/json"
-					}
-				],
-				"body": {
-					"mode": "raw",
-					"raw": "{\n\t\"code\": \"Welcome\",\n\t\"pourcentage\": 20,\n\t\"date_debut\": \"12-05-2019\",\n\t\"date_fin\": \"13-05-2019\",\n\t\"etat\": true\n}",
-					"options": {
-						"raw": {
-							"language": "json"
-						}
-					}
-				},
-				"url": {
-					"raw": "http://localhost:8120/api/coupons/1/Welcome",
-					"protocol": "http",
-					"host": [
-						"localhost"
-					],
-					"port": "8120",
-					"path": [
-						"api",
-						"coupons",
-						"1",
-						"Welcome"
-					]
-				}
-			},
-			"response": []
-		}
+			
 	],
 	"protocolProfileBehavior": {}
 }
