@@ -1,0 +1,204 @@
+{
+	"info": {
+		"_postman_id": "f5cb9adf-60bf-4176-b98e-a1c698a133d3",
+		"name": "PromotionService",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://localhost:8120/api/coupons/1/200",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"Welcome\",\n\t\"pourcentage\": 20,\n\t\"date_debut\": \"12-05-2019\",\n\t\"date_fin\": \"13-05-2019\",\n\t\"etat\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8120/api/coupons/1/200",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8120",
+					"path": [
+						"api",
+						"coupons",
+						"1",
+						"200"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8120/api/coupons/1",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"Welcome\",\n\t\"pourcentage\": 20,\n\t\"date_debut\": \"12-05-2019\",\n\t\"date_fin\": \"13-05-2019\",\n\t\"etat\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8120/api/coupons/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8120",
+					"path": [
+						"api",
+						"coupons",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8120/api/coupons/1/Welcome",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"Welcome\",\n\t\"pourcentage\": 20,\n\t\"date_debut\": \"12-05-2019\",\n\t\"date_fin\": \"13-05-2019\",\n\t\"etat\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8120/api/coupons/1/Welcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8120",
+					"path": [
+						"api",
+						"coupons",
+						"1",
+						"Welcome"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8120/api/coupons/",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"Welcome home\",\n\t\"pourcentage\": 20,\n\t\"date_debut\": \"12-05-2019\",\n\t\"date_fin\": \"13-05-2019\",\n\t\"etat\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8120/api/coupons/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8120",
+					"path": [
+						"api",
+						"coupons",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "http://localhost:8120/api/coupons/1/Welcome",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"type": "text",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"code\": \"Welcome\",\n\t\"pourcentage\": 20,\n\t\"date_debut\": \"12-05-2019\",\n\t\"date_fin\": \"13-05-2019\",\n\t\"etat\": true\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8120/api/coupons/1/Welcome",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8120",
+					"path": [
+						"api",
+						"coupons",
+						"1",
+						"Welcome"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"protocolProfileBehavior": {}
+}
