@@ -22,21 +22,21 @@ public class CouponService {
 	private UserCouponRepository userCouponRepository;
 	
 	public String ajouterCoupon(Coupon coupon) {
-		if (couponRepository.rechercheCode(coupon.getCode()).size() > 0) { // check si le coupon existe et est disponible
+		if (couponRepository.rechercheCode(coupon.getCode()).size() > 0) { 
 			return "Ce coupon existe, veuillez changer de code promo";
 		}
 		couponRepository.save(coupon);
 		return "Coupon ajouté";
 	}
 	
-	public List<Coupon> listeCouponsUtiliseables() { // liste les coupons avec etat true, et ayant des dates encore disponibles
-		List<Coupon> coupons = couponRepository.getCouponsEtat(true); // fonction ajoutée dans le repo pour l'etat
+	public List<Coupon> listeCouponsUtiliseables() { 
+		List<Coupon> coupons = couponRepository.getCouponsEtat(true); 
 		List<Coupon> result = new ArrayList<Coupon>();
 		for (Coupon coupon : coupons) {
-			boolean from = compareDatesBefore(coupon.getDate_debut()); // fonction private pour comparer les dates
+			boolean from = compareDatesBefore(coupon.getDate_debut()); 
 			boolean to = compareDatesAfter(coupon.getDate_fin());
 			if (from && to) {
-				result.add(coupon); // on ajoute le coupon qui verifie ces conditions dans l'array result
+				result.add(coupon); 
 			}
 		}
 		
@@ -44,7 +44,7 @@ public class CouponService {
 	}
 	
 	public Coupon rechercherCode(String code) {
-		List<Coupon> listeCoupons = couponRepository.rechercheCode(code); // recherche le code et le coupon avec etat true
+		List<Coupon> listeCoupons = couponRepository.rechercheCode(code); 
 		if (listeCoupons.size() > 0 && listeCoupons.get(0) != null) {
 			return listeCoupons.get(0);
 		}
@@ -52,31 +52,29 @@ public class CouponService {
 	}
 	
 	public UserCoupon utiliserCode(int userId, String code) {
-		// on peut utiliser le code même si la date a été depassée. La verification se fera dans le calcul du prix
 		Coupon coupon = rechercherCode(code);
-		if (coupon != null && !(userCouponRepository.userCouponExiste(userId, coupon.getId()).size() > 0)) { // on recherche le coupon et l'existance de userCoupon
-			// on ajoute le code promo
+		if (coupon != null && !(userCouponRepository.userCouponExiste(userId, coupon.getId()).size() > 0)) { 
 			UserCoupon userCoupon = new UserCoupon(userId, coupon.getId(), true);
 			userCoupon.setValable(true);
 			return userCouponRepository.save(userCoupon);
 		}
-		// sinon rien
+		
 		System.out.println("ce code n'existe pas ou est dejà utilise par l'utilisateur");
 		return null;
 	}
 	
-	public double calculerPrix(int userId, double prix) { // applique les pourcentages de tous les coupons de l'utilisateur
-		// on recherche un code promo pour l'utilisateur
+	public double calculerPrix(int userId, double prix) { 
+		
 		List<UserCoupon> userCoupons = userCouponRepository.getUserCoupons(userId);
 		double newPrix = prix;
 		if (userCoupons.size() > 0) {
 			for (UserCoupon userCoupon : userCoupons) {
-				Coupon coupon = couponRepository.findById(userCoupon.getCouponId()).get(); // Il faudrait normalement ajouter une verification si le userCoupon existe avant le get() (au cas où le coupon a été supprimé) 
-				// On verifie si le coupon est utilisable avant le calcul
-				boolean from = compareDatesBefore(coupon.getDate_debut()); // fonction private pour comparer les dates
+				Coupon coupon = couponRepository.findById(userCoupon.getCouponId()).get(); 
+				
+				boolean from = compareDatesBefore(coupon.getDate_debut()); 
 				boolean to = compareDatesAfter(coupon.getDate_fin());
-				if (from && to && userCoupon.isValable()) { // le check de isValable peut se faire dans le repository mais b5elt hhh
-					updateUserCoupon(userCoupon.getId(), false); // le userCoupon n'est plus valable une fois utilisé
+				if (from && to && userCoupon.isValable()) { 
+					updateUserCoupon(userCoupon.getId(), false); 
 					double pourcentage = coupon.getPourcentage() / 100;
 					newPrix = prix - (prix * pourcentage);
 				}
@@ -96,11 +94,11 @@ public class CouponService {
 			return null;
 	}
 
-	public String deleteCoupon(int id) { // supprime un coupon et tous les userCoupons relies
+	public String deleteCoupon(int id) { 
 		if (couponRepository.findById(id).isPresent()) {
-			List<UserCoupon> userCoupons = userCouponRepository.getByCouponId(id, true); // we get tous les userCoupons valables et ayant le couponId (valable peut être changé pour afficher les userCoupons non valables dans une autre fonction)
+			List<UserCoupon> userCoupons = userCouponRepository.getByCouponId(id, true); 
 			for (UserCoupon userCoupon : userCoupons) {
-				updateUserCoupon(userCoupon.getId(), false); // rendre les userCoupons non valables au lieu de supprimer (attention, peut generer une erreur dans une autre fonction when we want to get le coupon lié, parce qu'il sera supprimé)
+				updateUserCoupon(userCoupon.getId(), false); 
 			}
 			couponRepository.deleteById(id);
 			return "coupon et userCoupons supprimés";
