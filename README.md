@@ -5,14 +5,14 @@
 The project contains 6 microservices and Zuul gateway and an Eureka server placed in a docker container .
 
 
-1/ShoppingCart Microservice
-2/SalesPromotion microservice
-3/Stock microservice
-4/Rating microservice
-5/Delivery microservice
-5/User microservice
+1/ShoppingCart Microservice<br />
+2/SalesPromotion microservice<br />
+3/Stock microservice<br />
+4/Rating microservice<br />
+5/Delivery microservice<br />
+5/User microservice<br />
 
-Description:
+Description:<br />
 -ShoppingCart Microservice : manage all items in shopping cart including quantity and price <br />
 -SalesPromotion microservice : manage promotion for the items in the store and manage the use of discount coupon<br />
 -Stock microservice : manage stock of items in the store <br />
