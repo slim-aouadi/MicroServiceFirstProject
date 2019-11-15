@@ -1,4 +1,5 @@
-= Spring Boot image:https://ci.spring.io/api/v1/teams/spring-boot/pipelines/spring-boot-2.3.x/jobs/build/badge["Build Status", link="https://ci.spring.io/teams/spring-boot/pipelines/spring-boot-2.3.x?groups=Build"] image:https://badges.gitter.im/Join Chat.svg["Chat",link="https://gitter.im/spring-projects/spring-boot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
+#Spring Boot image:
+https://ci.spring.io/api/v1/teams/spring-boot/pipelines/spring-boot-2.3.x/jobs/build/badge["Build Status", link="https://ci.spring.io/teams/spring-boot/pipelines/spring-boot-2.3.x?groups=Build"] image:https://badges.gitter.im/Join Chat.svg["Chat",link="https://gitter.im/spring-projects/spring-boot?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge"]
 :docs: https://docs.spring.io/spring-boot/docs/current-SNAPSHOT/reference
 :github: https://github.com/spring-projects/spring-boot
 
@@ -22,7 +23,7 @@ diverge from the defaults
 
 
 
-== Installation and Getting Started
+#Installation and Getting Started
 The {docs}/html/[reference documentation] includes detailed
 {docs}/html/getting-started.html#getting-started-installing-spring-boot[installation
 instructions] as well as a comprehensive
