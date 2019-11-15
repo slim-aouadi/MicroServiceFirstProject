@@ -13,12 +13,12 @@ The project contains 6 microservices and Zuul gateway and an Eureka server place
 5/User microservice
 
 Description:
--ShoppingCart Microservice : manage all items in shopping cart including quantity and price 
--SalesPromotion microservice : manage promotion for the items in the store and manage the use of discount coupon
--Stock microservice : manage stock of items in the store 
--Rating microservice : manage rates for all items in the store 
--Delivery microservice : manage delivery of the bought items after checkout 
--User microservice : manage user authentification and register
+-ShoppingCart Microservice : manage all items in shopping cart including quantity and price <br />
+-SalesPromotion microservice : manage promotion for the items in the store and manage the use of discount coupon<br />
+-Stock microservice : manage stock of items in the store <br />
+-Rating microservice : manage rates for all items in the store <br />
+-Delivery microservice : manage delivery of the bought items after checkout <br />
+-User microservice : manage user authentification and register<br />
 
 
 
